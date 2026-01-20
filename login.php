@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="asset/css/styles.css">
 </head>
 
 <body>
@@ -20,7 +21,7 @@
             <!-- Icon -->
             <div class="d-flex justify-content-center mb-3">
                 <div class="icon-circle rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-building fs-3"></i>
+                    <a href="index.php"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZxVVBYcMFnxj3UH6s5BZAz0l5ooENrGneJA&s" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"></a>
                 </div>
             </div>
 
@@ -32,39 +33,50 @@
 
             <!-- Switch Role -->
             <div class="role-switch d-flex justify-content-between mb-4">
-                <button class="btn role-btn active w-50 me-1">
-                    <i class="bi bi-person me-1"></i> Siswa
+                <button id="btnSiswa" class="btn role-btn active w-50 me-1">
+                    <i class="bi bi-people-fill"></i> Siswa
                 </button>
-                <button class="btn role-btn w-50 ms-1">
-                    <i class="bi bi-shield-lock me-1"></i> Admin
+                <button id="btnAdmin" class="btn role-btn w-50 ms-1">
+                    <i class="bi bi-person-fill-gear"></i> Admin
                 </button>
             </div>
 
-            <!-- Form -->
-            <div class="mb-3">
-                <label class="form-label fw-semibold">NIS (Nomor Induk Siswa)</label>
-                <input type="text" class="form-control" placeholder="Masukkan NIS">
-            </div>
+            <!-- FORM SISWA -->
+            <form id="formSiswa" action="proses/login_proses.php" method="POST">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">NIS</label>
+                    <input type="number" class="form-control" name="username" placeholder="Masukkan NIS">
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label fw-semibold">Nama Lengkap</label>
-                <input type="text" class="form-control" placeholder="Masukkan nama lengkap">
-            </div>
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Masukkan password">
+                </div>
 
-            <div class="mb-4">
-                <label class="form-label fw-semibold">Kelas</label>
-                <input type="text" class="form-control" placeholder="Contoh: XII IPA 1">
-            </div>
+                <button class="btn btn-dark-custom text-white w-100" type="submit">
+                    Masuk sebagai Siswa
+                </button>
+            </form>
 
-            <!-- Button -->
-            <button class="btn btn-dark-custom text-white w-100">
-                <i class="bi bi-box-arrow-in-right me-2"></i>
-                Masuk sebagai Siswa
-            </button>
+            <!-- FORM ADMIN -->
+            <form id="formAdmin" class="d-none" action="proses/login_proses.php" method="POST">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Masukkan username">
+                </div>
 
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Masukkan password">
+                </div>
+
+                <button class="btn btn-dark-custom text-white w-100" type="submit">
+                    Masuk sebagai Admin
+                </button>
+            </form>
         </div>
-    </div>
 
+        <script src="asset/js/toogle.js"></script>
 </body>
 
 </html>

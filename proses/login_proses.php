@@ -27,7 +27,8 @@ if (mysqli_num_rows($admin) == 1) {
 $siswa = mysqli_query(
     $conn,
     "SELECT * FROM siswa 
-     WHERE nis='$username'"
+     WHERE nis='$username' 
+     AND password='$password'"
 );
 
 if (mysqli_num_rows($siswa) == 1) {
